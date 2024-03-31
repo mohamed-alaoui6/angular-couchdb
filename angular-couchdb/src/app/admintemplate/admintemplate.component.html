@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a style="color: aliceblue;" class="navbar-brand" routerLink="/admin">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a style="color: aliceblue;" class="nav-link active" aria-current="page" routerLink="/admin/products" >products</a>
+          </li>
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle custom-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Catégories de Produits
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'tablet']">Tablette</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'phone']">Téléphone</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'pc']">PC</a></li>
+            </ul>
+          </li>
+          
+          
+        </ul>
+        
+         @if (authservice.hasrole('USER')) {
+          <form class="d-flex mx-auto"> 
+            
+           <li class="nav-item">
+              <a style="color: aliceblue;" class="nav-link active" aria-current="page" routerLink="/admin/cart" >cart 🛒</a>
+            </li>
+          </form>
+         }
+        
+        <ul class="custom-ul">
+          
+          <li><a class="nav-link" style="color: cadetblue;text-decoration:solid;font-family: Helvetica Neue;font-size: 20px;" >{{authservice.authenticateduser!.username}}</a></li>
+          <li>
+            <button (click)="handlelogout()" style="color: rgb(23, 23, 79);border-radius: 25px;">🚶‍♀️logout</button>
+              <i class="bi bi-box-arrow-right" ></i>
+            
+
+          </li>
+          
+          
+        </ul>
+      </div>
+      
+    </div>
+  </nav>
+  <router-outlet>
+  
+  </router-outlet>

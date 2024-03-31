@@ -1,0 +1,46 @@
+.custom-ul {
+    list-style-type: none; /* Supprime les points de la liste */
+    padding: 0; /* Supprime le padding par défaut de la liste */
+    margin: 0; /* Supprime la marge par défaut de la liste */
+}
+
+.img1{
+     width: 40px;
+     height: 40px;
+}
+.navbar-center {
+    
+    text-align: center; /* Pour centrer le texte horizontalement */
+  }
+  /* CSS */
+/* Style de base pour le dropdown */
+.nav-item.dropdown {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    background-color: #fff; /* Couleur de fond du dropdown */
+    padding: 5px 0;
+    border: 1px solid #ccc; /* Bordure du dropdown */
+  }
+  
+  /* Style pour afficher le dropdown au survol */
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  /* Style pour les liens dans le dropdown */
+  .dropdown-item {
+    display: block;
+    padding: 10px;
+    color: #333; /* Couleur du texte */
+    text-decoration: none;
+  }
+  
+  /* Style pour les liens au survol */
+  .dropdown-item:hover {
+    background-color: #f0f0f0; /* Couleur de fond au survol */
+  }

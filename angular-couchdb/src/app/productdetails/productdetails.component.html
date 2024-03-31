@@ -1,0 +1,55 @@
+
+  <ul class="products" class="custom-ul">
+    <li class="product-item">
+      <div class="product">
+        <div  class="product-details">
+          <img [src]="getImageURL(p)" style="width: 3cm; height: 3cm;" />
+          <div class="product-info">
+            <div class="name" id="name">{{p.name}}</div>
+            
+            
+            
+              <div class="name" id="d1">{{p.price}} DH</div>
+              <div class="name" id="d1">{{p.quantite}}pieces</div>
+            @if (showDetails) {
+              
+              <div class="name" id="desc" >{{p.description}}</div>
+            }
+            
+            
+            <div class="description"></div>
+            <button (click)="toggleDetails(p)">Voir les détails</button>
+          </div>
+        </div>
+        
+
+        @if (p.qeerebyasali && p.quantite!=0) {
+          <div id="alert" style="color: rgb(251, 6, 6);">QUANTITE INSSUFISANT⁉️ </div>
+          }
+          
+          
+        <div class="price">
+          @if (p.quantite==0) {
+            <label style="color: rgb(200, 187, 11); text-align: end;">PRODUCT EXPIRED⚠️</label>
+           }
+          @if (authss.hasrole('USER')) {
+            <button class="btn btn-light" [disabled]="p.quantite === 0 " (click)="addToCart(p)"(click)="buying()">🛒   buy<i class="bi bi-cart"></i></button>
+          }
+          
+          @if(authss.hasrole('ADMIN')){
+            
+            <button type="button" class="btn btn-outline-danger" (click)="deleteProduct(p)">Delete</button>
+            
+          }
+          
+        </div>
+        
+      </div>
+    </li>
+  </ul>
+
+  
+    
+
+
+

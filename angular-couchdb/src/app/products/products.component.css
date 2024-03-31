@@ -1,0 +1,16 @@
+.form-container {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  .body{
+    background-color: rgb(236, 242, 211);
+  }
+  .btn-custom {
+    background-color: rgb(206, 214, 124);
+    padding: 20px;
+  }
+  
