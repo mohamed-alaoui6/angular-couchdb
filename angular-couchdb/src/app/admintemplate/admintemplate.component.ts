@@ -3,6 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { AuhthenticationService } from '../service/auhthentication.service';
 import { ProductService } from '../service/product.service';
 
+
 @Component({
   selector: 'app-admintemplate',
   standalone: true,
@@ -18,6 +19,7 @@ constructor(public authservice:AuhthenticationService,private router:Router,priv
     this.cartService.getCartItems().subscribe(items => {
       this.cartItemCount = items.length;
     });
+    
   }
 
   handlelogout(){

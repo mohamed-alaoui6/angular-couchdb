@@ -1,6 +1,8 @@
+
+<header>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
-      <a style="color: aliceblue;" class="navbar-brand" routerLink="/admin">Navbar</a>
+      <a style="color: aliceblue;" class="navbar-brand" routerLink="/admin/navbar">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -15,9 +17,9 @@
               Catégories de Produits
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'tablet']">Tablette</a></li>
-              <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'phone']">Téléphone</a></li>
-              <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'pc']">PC</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'phone']">phone</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'pc']">pc</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'watch']">watch</a></li>
             </ul>
           </li>
           
@@ -49,6 +51,14 @@
       
     </div>
   </nav>
+</header>
+<body>
+  
+  
+</body>
+
+
+
   <router-outlet>
   
   </router-outlet>
