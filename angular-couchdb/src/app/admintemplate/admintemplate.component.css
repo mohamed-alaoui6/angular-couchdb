@@ -36,7 +36,7 @@
   .dropdown-item {
     display: block;
     padding: 10px;
-    color: #333; /* Couleur du texte */
+    color: #898989; /* Couleur du texte */
     text-decoration: none;
   }
   
@@ -44,4 +44,5 @@
   .dropdown-item:hover {
     background-color: #f0f0f0; /* Couleur de fond au survol */
   }
+  
   

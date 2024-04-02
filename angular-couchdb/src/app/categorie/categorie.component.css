@@ -3,6 +3,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
+    
   }
   
   .product-item {
@@ -10,9 +11,12 @@
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    background-color: rgba(231, 231, 84, 0.849);
   }
-  
+  .product-item:hover {
+    transform: scale(1.07);
+    transition: transform 0.3s ease-in-out;
+  }
   .product-price {
     font-weight: bold;
   }
@@ -31,8 +35,10 @@
   .form-group {
     margin-bottom: 1rem;
   }
-  .body{
-    background-color: rgb(236, 242, 211);
+  body{
+   
+    background-color: rgb(40, 40, 40);
+  
   }
   .btn-custom {
     background-color: rgb(206, 214, 124);

@@ -1,6 +1,6 @@
 
 <header>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav style="color: rgb(27, 26, 26);" class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
       <a style="color: aliceblue;" class="navbar-brand" routerLink="/admin/navbar">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,12 +9,12 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a style="color: aliceblue;" class="nav-link active" aria-current="page" routerLink="/admin/products" >products</a>
+            <a style="color: aliceblue;" class="nav-link active" aria-current="page" routerLink="/admin/products" > All products</a>
           </li>
           <!-- Dropdown -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle custom-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Catégories de Produits
+              Product Categories
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'phone']">phone</a></li>
@@ -39,7 +39,7 @@
           
           <li><a class="nav-link" style="color: cadetblue;text-decoration:solid;font-family: Helvetica Neue;font-size: 20px;" >{{authservice.authenticateduser!.username}}</a></li>
           <li>
-            <button (click)="handlelogout()" style="color: rgb(23, 23, 79);border-radius: 25px;">🚶‍♀️logout</button>
+            <button (click)="handlelogout()" style="color: rgb(23, 23, 79);border-radius: 15px;">🚶‍♀️logout</button>
               <i class="bi bi-box-arrow-right" ></i>
             
 

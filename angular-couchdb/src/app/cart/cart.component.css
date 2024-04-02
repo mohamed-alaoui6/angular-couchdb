@@ -11,4 +11,9 @@
     background: rgb(232, 255, 157);
   }
 
+  body{
+    background-image: url('https://img.freepik.com/free-photo/shopping-cart-black-background-with-copy-space_23-2148317906.jpg?size=626&ext=jpg&ga=GA1.1.1827530304.1709942400&semt=ais');
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la zone */
+  background-position: center; 
+  }
   
