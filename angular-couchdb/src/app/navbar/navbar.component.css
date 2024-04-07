@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('https://www.shutterstock.com/image-photo/waterfalls-golden-glitter-sparkle-bubbles-600nw-557797171.jpg');
+    background-color: rgb(245, 245, 245);
     background-size: cover;
     background-position: center;
     height: 100vh;

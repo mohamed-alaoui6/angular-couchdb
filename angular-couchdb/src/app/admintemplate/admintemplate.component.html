@@ -1,58 +1,53 @@
-
-<header>
-<nav style="color: rgb(27, 26, 26);" class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-      <a style="color: aliceblue;" class="navbar-brand" routerLink="/admin/navbar">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a style="color: aliceblue;" class="nav-link active" aria-current="page" routerLink="/admin/products" > All products</a>
-          </li>
-          <!-- Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle custom-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Product Categories
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'phone']">phone</a></li>
-              <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'pc']">pc</a></li>
-              <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'watch']">watch</a></li>
-            </ul>
-          </li>
-          
-          
-        </ul>
-        
-         @if (authservice.hasrole('USER')) {
-          <form class="d-flex mx-auto"> 
-            
-           <li class="nav-item">
-              <a style="color: aliceblue;" class="nav-link active" aria-current="page" routerLink="/admin/cart" >cart 🛒</a>
-            </li>
-          </form>
-         }
-        
-        <ul class="custom-ul">
-          
-          <li><a class="nav-link" style="color: cadetblue;text-decoration:solid;font-family: Helvetica Neue;font-size: 20px;" >{{authservice.authenticateduser!.username}}</a></li>
-          <li>
-            <button (click)="handlelogout()" style="color: rgb(23, 23, 79);border-radius: 15px;">🚶‍♀️logout</button>
-              <i class="bi bi-box-arrow-right" ></i>
-            
-
-          </li>
-          
-          
-        </ul>
-      </div>
-      
-    </div>
-  </nav>
-</header>
+<head></head>
 <body>
+
+      <header>
+            <div style="display: flex; align-items: center;">
+              <h1 style="transform: translate(45px, 10px); margin-right: auto;"><a href="https://manage.wix.com/account/sites" style="text-decoration: none; font-family: cursive;font-size: xxx-large; color: black;LINE-HEIGHT: 1;"> Trendy</a></h1>
+              <button (click)="handlelogout()" class="button" style="color: rgb(209, 209, 209);border-radius: 15px; margin-left: auto;">🚶‍♀️logout</button>
+              <i class="bi bi-box-arrow-right"></i>
+            </div>
+          </header>
+
+<nav >
+      <div id="divid" >
+
+        <div ><a class="menu" routerLink="/admin/navbar">Navbar</a></div>
+       
+        
+          
+            
+        <div ><a class="menu"  routerLink="/admin/products" >All product</a></div>
+        <div>
+        @if (authservice.hasrole('USER')) {
+            
+            <div ><a class="menu"   routerLink="/admin/cart" >cart 🛒</a></div>
+              
+           }
+      </div>
+        <div>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle custom-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Product Categories
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'phone']">phone</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'pc']">pc</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'watch']">watch</a></li>
+              </ul>
+            </li>
+            
+      </div>
+          
+          
+           
+          
+          
+        </div>
+        
+    </nav>
+
   
   
 </body>

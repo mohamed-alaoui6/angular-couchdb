@@ -35,11 +35,13 @@
   .form-group {
     margin-bottom: 1rem;
   }
-  body{
-   
-    background-color: rgb(40, 40, 40);
-  
+  main{
+    background-color: rgb(245, 245, 245);
+
   }
+   
+  
+  
   .btn-custom {
     background-color: rgb(206, 214, 124);
     padding: 20px;

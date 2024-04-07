@@ -1,16 +1,43 @@
-<body>
+<html>
+<head>
+                      
+</head>
+
   
 
-<div class="product-container">
-  <div class="product-item" *ngFor="let item of cartItems">
-    <img style="width: 3cm; height: 3cm;" [src]="'assets/images/' + item.url_image" alt="Product Image">
-    <h4>{{ item.name }}</h4>
-    <p>{{ item.price }}</p>
-    <p>{{ item.description }}</p>
-    
-    <button type="button"(click)="removeFromCart(item)" class="btn btn-outline-warning">supprimer</button>
-  </div>
-</div>
 
+
+
+
+
+
+<body>
+      <header>
+             
+      </header>
+      <nav>
+            
+
+      </nav>
+      <main>
+        <div class="product-container">
+          <div class="product-item" *ngFor="let item of cartItems">
+            <img style="width: 3cm; height: 3cm;" [src]="'assets/images/' + item.url_image" alt="Product Image">
+            <h4>{{ item.name }}</h4>
+            <p>{{ item.price }}</p>
+            <p>{{ item.description }}</p>
+            
+            <button type="button"(click)="removeFromCart(item)" class="btn btn-outline-warning">supprimer</button>
+          </div>
+        </div>  
+      </main>
+      <footer>
+                </footer>
+
+
+
+
+
+                      
 </body>
-
+</html>

@@ -1,75 +1,97 @@
+
+<html>
+<head>
+                      
+</head>
+
 <body>
+      <header>
+             
+      </header>
+      <nav>
+            
 
-<div class="product-list">
-    <div class="product-item" *ngFor="let product of filteredProducts">
-      <div class="product-price">
-        <img [src]="'assets/images/' + product.url_image" alt="{{ product.name }}" class="img-fluid" />
-      </div>
-      <div class="product-details">
-        <div class="product-name">{{ product.name }}</div>
-        <div class="product-price">Prix: {{ product.price }}</div>
-        <div class="quantity text-danger custom-product-quantity"><b>Quantité disponible: {{ product.quantite}}</b></div>
-        
-        <details class="accordion">
-          <summary>Détails du produit</summary>
-          <div class="accordion-body">
-            <p>{{ product.description }}</p>
-          </div>
-        </details>
-      </div>
-      @if (auths.hasrole('ADMIN')) {
-
-        <button type="button" class="btn btn-outline-danger" (click)="deleteProduct(product.id)">Delete</button>
-      }
-      @if (auths.hasrole('USER')) {
-        <button style="background-color: rgb(175, 205, 232);" class="btn btn-light" [disabled]="product.quantite === 0 " (click)="buying(product)">
-          🛒   Buy<i class="bi bi-cart"></i>
-        </button>
-               }
-    </div>
-  </div>
-  <div class="text-center mt-5">
-    @if (auths.hasrole('ADMIN')) {
-    <div  class="btn btn-custom">
+      </nav>
+      <main>
+        <div class="product-list">
+          <div class="product-item" *ngFor="let product of filteredProducts">
+            <div class="product-price">
+              <img [src]="'assets/images/' + product.url_image" alt="{{ product.name }}" class="img-fluid" />
+            </div>
+            <div class="product-details">
+              <div class="product-name">{{ product.name }}</div>
+              <div class="product-price">Prix: {{ product.price }}</div>
+              <div class="quantity text-danger custom-product-quantity"><b>Quantité disponible: {{ product.quantite}}</b></div>
+              
+              <details class="accordion">
+                <summary>Détails du produit</summary>
+                <div class="accordion-body">
+                  <p>{{ product.description }}</p>
+                </div>
+              </details>
+            </div>
+            @if (auths.hasrole('ADMIN')) {
       
+              <button type="button" class="btn btn-outline-danger" (click)="deleteProduct(product.id)">Delete</button>
+            }
+            @if (auths.hasrole('USER')) {
+              <button style="background-color: rgb(175, 205, 232);" class="btn btn-light" [disabled]="product.quantite === 0 " (click)="buying(product)">
+                🛒   Buy<i class="bi bi-cart"></i>
+              </button>
+                     }
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          @if (auths.hasrole('ADMIN')) {
+          <div  class="btn btn-custom">
+            
+            
+              <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">Ajouter un produit</h1>
+              <form class="form-container" (ngSubmit)="addProduct()">
+                <div class="form-group">
+                  <label for="name">Nom du produit :</label>
+                  <input type="text" id="name" [(ngModel)]="newProduct.name" name="name" class="form-control" required>
+                </div>
+              
+                <div class="form-group">
+                  <label for="category">category</label>
+                  <input type="text" id="category" [(ngModel)]="newProduct.category" name="category" class="form-control" required>
+                </div>
       
-        <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">Ajouter un produit</h1>
-        <form class="form-container" (ngSubmit)="addProduct()">
-          <div class="form-group">
-            <label for="name">Nom du produit :</label>
-            <input type="text" id="name" [(ngModel)]="newProduct.name" name="name" class="form-control" required>
-          </div>
-        
-          <div class="form-group">
-            <label for="category">category</label>
-            <input type="text" id="category" [(ngModel)]="newProduct.category" name="category" class="form-control" required>
-          </div>
+                <div class="form-group">
+                  <label for="price">Prix :</label>
+                  <input type="number" id="price" [(ngModel)]="newProduct.price" name="price" class="form-control" required>
+                </div>
+              
+                <div class="form-group">
+                  <label for="url_image">URL de l'image :</label>
+                  <input type="url" id="url_image" [(ngModel)]="newProduct.url_image" name="url_image" class="form-control" required>
+                </div>
+              
+                <div class="form-group">
+                  <label for="quantity">Quantité :</label>
+                  <input type="number" id="quantity" [(ngModel)]="newProduct.quantite" name="quantity" class="form-control" required>
+                </div>
+              
+                <div class="form-group">
+                  <label for="description">Description :</label>
+                  <textarea id="description" [(ngModel)]="newProduct.description" name="description" class="form-control"></textarea>
+                </div>
+              
+                <button type="submit" class="btn btn-outline-dark">add</button>
+              </form>
+              
+            
+          </div>}
+        </div> 
+      </main>
+      <footer>
+                </footer>
 
-          <div class="form-group">
-            <label for="price">Prix :</label>
-            <input type="number" id="price" [(ngModel)]="newProduct.price" name="price" class="form-control" required>
-          </div>
-        
-          <div class="form-group">
-            <label for="url_image">URL de l'image :</label>
-            <input type="url" id="url_image" [(ngModel)]="newProduct.url_image" name="url_image" class="form-control" required>
-          </div>
-        
-          <div class="form-group">
-            <label for="quantity">Quantité :</label>
-            <input type="number" id="quantity" [(ngModel)]="newProduct.quantite" name="quantity" class="form-control" required>
-          </div>
-        
-          <div class="form-group">
-            <label for="description">Description :</label>
-            <textarea id="description" [(ngModel)]="newProduct.description" name="description" class="form-control"></textarea>
-          </div>
-        
-          <button type="submit" class="btn btn-outline-dark">add</button>
-        </form>
-        
-      
-    </div>}
-  </div>
 
+
+
+
+                      
 </body>
+</html>
