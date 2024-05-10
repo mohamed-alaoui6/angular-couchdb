@@ -4,6 +4,12 @@
   "newProjectRoot": "projects",
   "projects": {
     "test12": {
+      "i18n": {
+        "sourceLocale":"en-US",
+        "locales": {
+          "fr-CA":"src/locale/messages.fr.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,6 +19,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "localize":[
+              "fr-CA"
+            ],
             "outputPath": "dist/test12",
             "index": "src/index.html",
             "browser": "src/main.ts",

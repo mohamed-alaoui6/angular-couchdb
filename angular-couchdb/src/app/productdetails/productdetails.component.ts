@@ -7,7 +7,7 @@ import { AuhthenticationService } from '../service/auhthentication.service';
 @Component({
   selector: 'app-productdetails',
   standalone: true,
-  imports: [],
+  imports: [ProductsComponent],
   templateUrl: './productdetails.component.html',
   styleUrl: './productdetails.component.css'
 })

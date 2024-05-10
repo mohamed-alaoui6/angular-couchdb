@@ -4,7 +4,7 @@
       <header>
             <div style="display: flex; align-items: center;">
               <h1 style="transform: translate(45px, 10px); margin-right: auto;"><a href="https://manage.wix.com/account/sites" style="text-decoration: none; font-family: cursive;font-size: xxx-large; color: black;LINE-HEIGHT: 1;"> Trendy</a></h1>
-              <button (click)="handlelogout()" class="button" style="color: rgb(209, 209, 209);border-radius: 15px; margin-left: auto;">🚶‍♀️logout</button>
+              <button (click)="handlelogout()" class="button" style="color: rgb(209, 209, 209);border-radius: 15px; margin-left: auto;" i18n>🚶‍♀️logout</button>
               <i class="bi bi-box-arrow-right"></i>
             </div>
           </header>
@@ -12,29 +12,29 @@
 <nav >
       <div id="divid" >
 
-        <div ><a class="menu" routerLink="/admin/navbar">Navbar</a></div>
+        <div ><a class="menu" routerLink="/admin/navbar" i18n>Navbar</a></div>
        
         
           
             
-        <div ><a class="menu"  routerLink="/admin/products" >All product</a></div>
+        <div ><a class="menu"  routerLink="/admin/products" i18n>All product</a></div>
         <div>
         @if (authservice.hasrole('USER')) {
             
-            <div ><a class="menu"   routerLink="/admin/cart" >cart 🛒</a></div>
+            <div ><a class="menu"   routerLink="/admin/cart" i18n>cart 🛒</a></div>
               
            }
       </div>
         <div>
             <!-- Dropdown -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle custom-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle custom-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" i18n>
                 Product Categories
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'phone']">phone</a></li>
-                <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'pc']">pc</a></li>
-                <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'watch']">watch</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'phone']" i18n>phone</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'pc']" i18n>pc</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/admin/categorie', 'watch']" i18n>watch</a></li>
               </ul>
             </li>
             
