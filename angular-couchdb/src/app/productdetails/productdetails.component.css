@@ -11,10 +11,11 @@
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: rgba(231, 231, 84, 0.849);
+  
 }
 
 .product-item:hover {
-  transform: scale(1.07);
+  transform: scale(1.04);
   transition: transform 0.3s ease-in-out;
 }
 
@@ -44,4 +45,23 @@
 .alerts {
   margin-left: auto;
   margin-top: 50px;
+}
+.btn{
+margin-top: 30px;
+  justify-content: center;
+  display: flex;
+
+}
+.btn button {
+  width: 100px;
+  height: 50px;
+  border-radius: 15%;
+  background-color: #000000;
+  color: rgb(255, 254, 254);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }

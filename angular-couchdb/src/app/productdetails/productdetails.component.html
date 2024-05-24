@@ -15,24 +15,29 @@
               <p>{{ p.description }}</p>
             </div>
           </details>
+          
         </div>
+        
         <div class="alerts">
           @if (p.qeerebyasali && p.quantite != 0){
-            <div id="alert" style="color: rgb(251, 6, 6);" i18n>QUANTITE INSSUFISANT⁉️🚨</div>
-        }
+            <div id="alert" style="color: rgb(251, 6, 6);" i18n>QUANTITE INSSUFISANT⁉️</div>
+          }
           @if (p.quantite == 0){
-            <label style="color: rgb(0, 0, 0);" i18n>PRODUCT EXPIRED⚠️</label>
-      }
+            <label style="color: rgb(179, 0, 0);" i18n>PRODUCT EXPIRED🚨</label>
+          }
+        </div>
+        <div class="btn">
+          @if (authss.hasrole('USER')){
+            <button class="btn btn-light" [disabled]="p.quantite === 0" (click)="addToCart(p); buying()">🛒   buy<i class="bi bi-cart"></i></button>
+          }
+          @if (authss.hasrole('ADMIN')){
+            <button type="button" class="btn btn-outline-danger" (click)="deleteProduct(p)">Delete</button>
+          }
         </div>
       </div>
-      
-        @if (authss.hasrole('USER')){
-          <button style="background-color: rgb(175, 205, 232);" class="btn btn-light" [disabled]="p.quantite === 0" (click)="addToCart(p); buying()">🛒   buy<i class="bi bi-cart"></i></button>
-      }
-        @if (authss.hasrole('ADMIN')){
-          <button type="button" class="btn btn-outline-danger" (click)="deleteProduct(p)">Delete</button>
-     }
-      
+      <div class="buttons">
+        
+      </div>
     </div>
   </div>
 </div>
