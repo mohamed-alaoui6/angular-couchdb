@@ -27,6 +27,7 @@ export class ProductService {
         row.doc.quantite,
         row.doc.description,
         row.doc.qeerebyasali,
+        row.doc.isPromo,
         row.doc._rev
       )))
     );
@@ -77,6 +78,7 @@ public updateQuantity(p: product): Observable<boolean> {
         p.quantite, 
         doc.description,
         doc.qeerebyasali,
+        doc.isPromo,
         doc._rev
       );
 
@@ -89,6 +91,7 @@ public updateQuantity(p: product): Observable<boolean> {
         quantite: updatedProduct.quantite,
         description: updatedProduct.description,
         qeerebyasali: updatedProduct.qeerebyasali,
+        isPromo:updatedProduct.isPromo,
         _rev: updatedProduct.rev
       };
 
@@ -125,6 +128,7 @@ public addProduct(p: product): Observable<boolean> {
         p.quantite, 
         p.description,
         doc.qeerebyasali=false,
+        doc.isPromo=false,
         doc._rev
       );
 
@@ -137,6 +141,7 @@ public addProduct(p: product): Observable<boolean> {
         quantite: addp.quantite,
         description: addp.description,
         qeerebyasali: addp.qeerebyasali,
+        isPromo:addp.isPromo,
         _rev: addp.rev
       };
 
@@ -209,6 +214,7 @@ private cartItems: product[] = [];
               doc.quantite,
               doc.description,
               doc.qeerebyasali,
+              doc.isPromo,
               doc._rev
             );
           });
@@ -236,6 +242,7 @@ private cartItems: product[] = [];
           doc.quantite,
           doc.description,
           doc.qeerebyasali,
+          doc.isPromo,
           doc._rev
         )),
         catchError(error => {
@@ -257,6 +264,7 @@ private cartItems: product[] = [];
         quantite: p.quantite,
         description: p.description,
         qeerebyasali: p.qeerebyasali,
+        isPromo:p.isPromo,
         _rev: p.rev
       };
   
@@ -270,6 +278,43 @@ private cartItems: product[] = [];
     }
   
 
-  
+  // Dans productService.ts
+
+// productService.ts
+
+public updatePromotionStatus(p: product): Observable<boolean> {
+  const url = `${this.baseUrl}/${p.id}`;
+
+  return this.http.get<any>(url).pipe(
+    switchMap((doc: any) => {
+      const body = {
+        _id: doc._id,
+        name: doc.name,
+        category: doc.category,
+        price: doc.price,
+        url_image: doc.url_image,
+        quantite: doc.quantite,
+        description: doc.description,
+        qeerebyasali: doc.qeerebyasali,
+        isPromo: p.isPromo, // Mettre à jour l'état de la promotion
+        _rev: doc._rev
+      };
+
+      return this.http.put<any>(url, body).pipe(
+        map(() => true),
+        catchError(error => {
+          console.error('Erreur lors de la mise à jour de l\'état de la promotion:', error);
+          return of(false);
+        })
+      );
+    }),
+    catchError(error => {
+      console.error('Erreur lors de la récupération du document:', error);
+      return of(false);
+    })
+  );
+}
+
+
 
 }

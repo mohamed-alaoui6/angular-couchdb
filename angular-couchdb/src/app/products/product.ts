@@ -62,6 +62,14 @@ export class product {
         this._qeerebyasali = value;
     }
 
+    private _isPromo!: boolean;
+    public get isPromo(): boolean {
+        return this._isPromo;
+    }
+    public set isPromo(value: boolean) {
+        this._isPromo = value;
+    }
+
     private _rev!: string;
     public get rev(): string {
         return this._rev;
@@ -70,7 +78,7 @@ export class product {
         this._rev = value;
     }
 
-    constructor(id: string, name: string, category: string, price: number, url_image: string | undefined, quantite: number, description: string, qeerebyasali: boolean, rev: string) {
+    constructor(id: string, name: string,category: string, price: number, url_image: string | undefined, quantite: number, description: string, qeerebyasali: boolean,isPromo:boolean ,rev: string) {
         this._id = id;
         this._name = name;
         this._category = category;
@@ -79,6 +87,7 @@ export class product {
         this._quantite = quantite;
         this._description = description;
         this._qeerebyasali = qeerebyasali;
+        this._isPromo=isPromo;
         this._rev = rev;
     }
 }

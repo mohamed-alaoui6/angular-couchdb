@@ -9,6 +9,9 @@
           <div class="product-name">{{ p.name }}</div>
           <div class="product-price">Prix: {{ p.price }}</div>
           <div class="quantity text-danger custom-product-quantity"><b>Quantité disponible: {{ p.quantite }}</b></div>
+          <div class="promo-status" [ngClass]="{ 'promo': p.isPromo }">
+            {{ p.isPromo ? 'En Promo' : 'Non Promo' }}
+          </div>
           <details class="accordion">
             <summary>Détails du produit</summary>
             <div class="accordion-body">
@@ -32,6 +35,10 @@
           @if (authss.hasrole('ADMIN')){
             <button type="button" class="btn btn-outline-warning edit-btn" (click)="editProduct()">Edit</button>
             <button type="button" class="btn btn-outline-danger delete-btn" (click)="deleteProduct(p)">Delete</button>
+            <button type="button" class="btn btn-outline-primary" (click)="togglePromo(p)">
+              {{ p.isPromo ? 'Désactiver Promo' : 'Activer Promo' }}
+            </button>
+            
           }
         </div>
       </div>

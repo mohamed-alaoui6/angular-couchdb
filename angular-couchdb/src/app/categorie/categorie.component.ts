@@ -21,7 +21,7 @@ export class CategorieComponent implements OnInit {
   showDetails: boolean = false;
 
   constructor(private route: ActivatedRoute, private productService: ProductService,public auths:AuhthenticationService) { }
-  newProduct: product = new product('', '', '', 0, '', 0, '', false, ''); // Nouveau produit à ajouter
+  newProduct: product = new product('', '', '', 0, '', 0, '', false,false, ''); // Nouveau produit à ajouter
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -59,7 +59,7 @@ export class CategorieComponent implements OnInit {
       next: (added: boolean) => {
         if (added) {
           console.log('Produit ajouté avec succès');
-          this.newProduct = new product('', '', '', 0, '', 0, '', false, ''); // Réinitialiser le nouveau produit après l'ajout
+          this.newProduct = new product('', '', '', 0, '', 0, '', false,false, ''); // Réinitialiser le nouveau produit après l'ajout
         } else {
           console.error('Erreur lors de l\'ajout du produit');
         }

@@ -63,7 +63,9 @@
                     <div class="product-name">{{ product.name }}</div>
                     <div class="product-price">Prix: {{ product.price }}</div>
                     <div class="quantity text-danger custom-product-quantity"><b>Quantité disponible: {{ product.quantite}}</b></div>
-                    
+                    <div class="promo-status" [ngClass]="{ 'promo': product.isPromo }">
+                      {{ product.isPromo ? 'En Promo' : 'Non Promo' }}
+                    </div>
                     <details class="accordion">
                       <summary>Détails du produit</summary>
                       <div class="accordion-body">

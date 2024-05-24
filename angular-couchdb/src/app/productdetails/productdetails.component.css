@@ -87,3 +87,6 @@
 .btn button:hover {
   background-color: #555555;
 }
+.promo {
+  color: green; /* Modifier selon votre préférence */
+}

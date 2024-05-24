@@ -23,7 +23,7 @@
       
     }
     
-    newProduct: product = new product('', '','', 0, '', 0, '', false, '');
+    newProduct: product = new product('', '','', 0, '', 0, '', false,false, '');
 
     errorMessage:string|undefined;
     products! : Array<product>;
@@ -110,7 +110,7 @@
             if (updated) {
               console.log('Produit mis à jour avec succès');
               this.getAllProduct();
-              this.newProduct = new product('', '', '', 0, '', 0, '', false, '');
+              this.newProduct = new product('', '', '', 0, '', 0, '', false,false, '');
               this.editMode = false;
             } else {
               console.error('Erreur lors de la mise à jour du produit');
@@ -121,11 +121,12 @@
           },
         });
       } else {
+        this.newProduct.isPromo = false;
         this.productService.addProduct(this.newProduct).subscribe({
           next: (added: boolean) => {
             if (added) {
               console.log('Produit ajouté avec succès');
-              this.newProduct = new product('', '', '', 0, '', 0, '', false, '');
+              this.newProduct = new product('', '', '', 0, '', 0, '', false,false, '');
               this.getAllProduct();
             } else {
               console.error('Erreur lors de l\'ajout du produit');
@@ -167,6 +168,21 @@
         error: (err: any) => {
           this.errorMessage = err;
         },
+      });
+    }
+    togglePromo(p: product): void {
+      p.isPromo = !p.isPromo; // Inverse l'état de la promotion
+      this.productService.updatePromotionStatus(p).subscribe({
+        next: (updated: boolean) => {
+          if (updated) {
+            console.log('État de la promotion mis à jour avec succès');
+          } else {
+            console.error('Erreur lors de la mise à jour de l\'état de la promotion');
+          }
+        },
+        error: (err: any) => {
+          console.error('Erreur lors de la mise à jour de l\'état de la promotion:', err);
+        }
       });
     }
   };
