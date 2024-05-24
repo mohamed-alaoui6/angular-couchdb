@@ -223,7 +223,51 @@ private cartItems: product[] = [];
     );
   }
   
+    // Méthode pour récupérer un produit par ID
+    public getProductById(id: string): Observable<product> {
+      const url = `${this.baseUrl}/${id}`;
+      return this.http.get<any>(url).pipe(
+        map(doc => new product(
+          doc._id,
+          doc.name,
+          doc.category,
+          doc.price,
+          doc.url_image,
+          doc.quantite,
+          doc.description,
+          doc.qeerebyasali,
+          doc._rev
+        )),
+        catchError(error => {
+          console.error('Erreur lors de la récupération du produit par ID:', error);
+          return throwError(error);
+        })
+      );
+    }
   
+    // Méthode pour mettre à jour un produit
+    public updateProduct(p: product): Observable<boolean> {
+      const url = `${this.baseUrl}/${p.id}`;
+      const body = {
+        _id: p.id,
+        name: p.name,
+        category: p.category,
+        price: p.price,
+        url_image: p.url_image,
+        quantite: p.quantite,
+        description: p.description,
+        qeerebyasali: p.qeerebyasali,
+        _rev: p.rev
+      };
+  
+      return this.http.put<any>(url, body).pipe(
+        map(() => true),
+        catchError(error => {
+          console.error('Erreur lors de la mise à jour du produit:', error);
+          return of(false);
+        })
+      );
+    }
   
 
   

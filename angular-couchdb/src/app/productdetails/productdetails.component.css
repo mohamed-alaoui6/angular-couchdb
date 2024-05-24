@@ -11,7 +11,6 @@
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: rgba(231, 231, 84, 0.849);
-  
 }
 
 .product-item:hover {
@@ -38,6 +37,7 @@
   align-items: center;
   justify-content: flex-end;
 }
+
 .product-content {
   display: flex;
 }
@@ -46,12 +46,14 @@
   margin-left: auto;
   margin-top: 50px;
 }
-.btn{
-margin-top: 30px;
+
+.btn {
+  margin-top: 30px;
   justify-content: center;
   display: flex;
-
+  gap: 10px; /* This will add space between all buttons within the .btn container */
 }
+
 .btn button {
   width: 100px;
   height: 50px;
@@ -64,4 +66,24 @@ margin-top: 30px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.btn-outline-danger, .btn-outline-warning {
+  background-color: #f8d7da; /* Red background for delete */
+  color: #721c24; /* Red text for delete */
+  border: 1px solid #f5c6cb; /* Red border for delete */
+}
+
+.btn-outline-warning {
+  background-color: #fff3cd; /* Yellow background for edit */
+  color: #856404; /* Yellow text for edit */
+  border: 1px solid #ffeeba; /* Yellow border for edit */
+}
+
+.edit-btn {
+  margin-right: 10px; /* Add space to the right of the Edit button */
+}
+
+.btn button:hover {
+  background-color: #555555;
 }

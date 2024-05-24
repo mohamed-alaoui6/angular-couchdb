@@ -13,14 +13,14 @@
                 
             <img  style="position: fixed;width: 20%; height: 100%;margin-left: 5px;margin-bottom: 15px; " src="\assets\images\imm.jpg" alt="">
             
-        }
+          }
             <div style="position: fixed" class="text-center mt-5">
               
                 @if (auths.hasrole('ADMIN')) {
-                <div   class="btn btn-custom" style="width: 9cm;">
+                <div class="btn btn-custom" style="width: 9cm;color: aliceblue;background-color: black;">
                   
                   
-                    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;" i18n>ADD PRODUCT </h1>
+                    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;" i18n>{{ editMode ? 'MODIFIER PRODUIT' : 'AJOUTER PRODUIT' }}</h1>
                     <form class="form-container" (ngSubmit)="addProduct()">
                       <div class="form-group">
                         <label for="name">Nom du produit :</label>
@@ -28,7 +28,7 @@
                       </div>
                     
                       <div class="form-group">
-                        <label for="category">category</label>
+                        <label for="category">Catégorie :</label>
                         <input type="text" id="category" [(ngModel)]="newProduct.category" name="category" class="form-control" required>
                       </div>
           
@@ -52,7 +52,7 @@
                         <textarea id="description" [(ngModel)]="newProduct.description" name="description" class="form-control"></textarea>
                       </div>
                     
-                      <button type="submit" class="btn btn-outline-dark">add</button>
+                      <button type="submit" class="btn btn-outline-dark">{{ editMode ? 'Modifier' : 'Ajouter' }}</button>
                     </form>
                     
                   
@@ -62,9 +62,8 @@
         <div class="right-side">
             <div>
                 @for (p of products; track $index) {
-                  <app-productdetails [p]="p" (buyEvent)="buying(p)" (addToCartEvent)="addToCart($event)"  (deleteEvent)="deleteProduct(p)"></app-productdetails>
-                  
-              }
+                  <app-productdetails [p]="p" (buyEvent)="buying(p)" (addToCartEvent)="addToCart($event)" (deleteEvent)="deleteProduct(p)" (editEvent)="loadProductForEdit(p)"></app-productdetails>
+                }
               </div>
         </div>
     </div>

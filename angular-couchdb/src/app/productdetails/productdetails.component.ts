@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input,Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { product } from '../products/product';
-
 import { ProductsComponent } from '../products/products.component';
 import { AuhthenticationService } from '../service/auhthentication.service';
 
@@ -9,36 +8,40 @@ import { AuhthenticationService } from '../service/auhthentication.service';
   standalone: true,
   imports: [ProductsComponent],
   templateUrl: './productdetails.component.html',
-  styleUrl: './productdetails.component.css'
+  styleUrls: ['./productdetails.component.css']
 })
 export class ProductdetailsComponent {
-
-
   @Output() addToCartEvent: EventEmitter<product> = new EventEmitter<product>();
-  @Input() p!:product;
+  @Input() p!: product;
   @Output() buyEvent = new EventEmitter();
-  showDetails: boolean = false;
   @Output() deleteEvent = new EventEmitter<product>();
+  @Output() editEvent = new EventEmitter<product>();
   
+  showDetails: boolean = false;
 
-   constructor(public authss:AuhthenticationService){}
-  toggleDetails(p:product): void {
-    this.showDetails = !this.showDetails; 
+  constructor(public authss: AuhthenticationService) {}
+
+  toggleDetails(p: product): void {
+    this.showDetails = !this.showDetails;
   }
+
   addToCart(product: product): void {
     this.addToCartEvent.emit(product);
-    
   }
+
   buying() {
     return this.buyEvent.emit(this.p);
-   }
-   deleteProduct(p: product) {
-   
+  }
+
+  deleteProduct(p: product) {
     this.deleteEvent.emit(p);
   }
 
-getImageURL(p : product):string{
-  return "assets/images/"+p.url_image;
-}
+  editProduct() {
+    this.editEvent.emit(this.p);
+  }
 
+  getImageURL(p: product): string {
+    return "assets/images/" + p.url_image;
+  }
 }

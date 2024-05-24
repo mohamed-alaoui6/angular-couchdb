@@ -27,6 +27,7 @@
 
     errorMessage:string|undefined;
     products! : Array<product>;
+    editMode: boolean = false;
   ngOnChanges(changes: SimpleChanges): void {
   }
   ngOnDestroy(): void  { console.log("ondestroy declared! ")}
@@ -99,28 +100,55 @@
     }
     
     addProduct(): void {
-      
       if (!this.newProduct.url_image) {
         console.error('L\'URL de l\'image est indéfinie');
-        return; 
+        return;
       }
-    
-      this.productService.addProduct(this.newProduct).subscribe({
-        next: (added: boolean) => {
-          if (added) {
-            console.log('Produit ajouté avec succès');
-            
-            this.newProduct = new product('', '','', 0, '', 0, '', false, '');
-          } else {
-            console.error('Erreur lors de l\'ajout du produit');
-          }
+      if (this.editMode) {
+        this.productService.updateProduct(this.newProduct).subscribe({
+          next: (updated: boolean) => {
+            if (updated) {
+              console.log('Produit mis à jour avec succès');
+              this.getAllProduct();
+              this.newProduct = new product('', '', '', 0, '', 0, '', false, '');
+              this.editMode = false;
+            } else {
+              console.error('Erreur lors de la mise à jour du produit');
+            }
+          },
+          error: (err: any) => {
+            console.error('Erreur lors de la mise à jour du produit:', err);
+          },
+        });
+      } else {
+        this.productService.addProduct(this.newProduct).subscribe({
+          next: (added: boolean) => {
+            if (added) {
+              console.log('Produit ajouté avec succès');
+              this.newProduct = new product('', '', '', 0, '', 0, '', false, '');
+              this.getAllProduct();
+            } else {
+              console.error('Erreur lors de l\'ajout du produit');
+            }
+          },
+          error: (err: any) => {
+            console.error('Erreur lors de l\'ajout du produit:', err);
+          },
+        });
+      }
+    }
+    loadProductForEdit(p: product): void {
+      this.productService.getProductById(p.id).subscribe({
+        next: (prod: product) => {
+          this.newProduct = prod;
+          this.editMode = true;
         },
         error: (err: any) => {
-          console.error('Erreur lors de l\'ajout du produit:', err);
-        },
+          console.error('Erreur lors du chargement du produit pour modification:', err);
+        }
       });
-      
     }
+  
 
     addToCart(product: product): void {
       
