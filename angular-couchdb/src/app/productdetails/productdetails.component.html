@@ -10,7 +10,7 @@
           <div class="product-price">Prix: {{ p.price }}</div>
           <div class="quantity text-danger custom-product-quantity"><b>Quantité disponible: {{ p.quantite }}</b></div>
           <div class="promo-status" [ngClass]="{ 'promo': p.isPromo }">
-            {{ p.isPromo ? 'En Promo' : 'Non Promo' }}
+            {{ p.isPromo ? 'En Promo' : '' }}
           </div>
           <details class="accordion">
             <summary>Détails du produit</summary>
