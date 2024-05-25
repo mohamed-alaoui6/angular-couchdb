@@ -16,6 +16,7 @@ import { error } from 'console';
 export class LoginComponent implements OnInit{
 
   formgroup!:FormGroup;
+  registerForm!: FormGroup;
   errormessage!:string;
   constructor(private fb:FormBuilder,
     private authservice:AuhthenticationService,
@@ -26,7 +27,12 @@ export class LoginComponent implements OnInit{
     this.formgroup=this.fb.group({
       username : this.fb.control(""),
       password:this.fb.control("")
-    })
+    });
+    this.registerForm = this.fb.group({
+      username: this.fb.control(""),
+      password: this.fb.control(""),
+      role: this.fb.control(['USER']) // Default role as USER
+    });
   }
  
   handlelogin() {
@@ -47,5 +53,12 @@ export class LoginComponent implements OnInit{
         this.errormessage=err;
       }
      });
+  }
+  handleRegister(): void {
+    let newUser = this.registerForm.value;
+    this.authservice.register(newUser).subscribe({
+      next: () => alert("Registration successful"),
+      error: (err) => this.errormessage = err.message
+    });
   }
 }
