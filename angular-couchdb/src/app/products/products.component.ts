@@ -5,11 +5,11 @@
   import { ProductdetailsComponent } from '../productdetails/productdetails.component';
   import { FormsModule } from '@angular/forms'; 
   import { AuhthenticationService } from '../service/auhthentication.service';
-
+  import { CommonModule } from '@angular/common';
   @Component({
     selector: 'app-products',
     standalone: true,
-    imports: [ ProductdetailsComponent,FormsModule],
+    imports: [ ProductdetailsComponent,FormsModule,CommonModule],
     templateUrl: './products.component.html',
     styleUrl: './products.component.css'
   })
@@ -28,6 +28,7 @@
     errorMessage:string|undefined;
     products! : Array<product>;
     editMode: boolean = false;
+    searchKeyword: string = '';
   ngOnChanges(changes: SimpleChanges): void {
   }
   ngOnDestroy(): void  { console.log("ondestroy declared! ")}
@@ -185,4 +186,25 @@
         }
       });
     }
+    searchProducts() {
+      if (this.searchKeyword) {
+        this.productService.searchProduct(this.searchKeyword).subscribe({
+          next: (data: product[]) => {
+            this.products = data;
+          },
+          error: (err: any) => {
+            this.errorMessage = err;
+          }
+        });
+      } else {
+        this.getAllProduct();
+      }
+    }
+    showSearch: boolean = false;
+  
+
+  toggleSearch() {
+    this.showSearch = !this.showSearch;
+  }
+    
   };

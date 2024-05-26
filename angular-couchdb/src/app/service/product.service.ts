@@ -316,5 +316,42 @@ public updatePromotionStatus(p: product): Observable<boolean> {
 }
 
 
+public searchProduct(keyword: string): Observable<product[]> {
+  const url = `${this.baseUrl}/_find`;
+  const body = {
+    selector: {
+      $or: [
+        { name: { $regex: `(?i)${keyword}` } }, // Case-insensitive search
+        { description: { $regex: `(?i)${keyword}` } }
+      ]
+    }
+  };
 
+  return this.http.post<any>(url, body).pipe(
+    map(response => {
+      if (response.docs && response.docs.length > 0) {
+        return response.docs.map((doc: any) => {
+          return new product(
+            doc._id,
+            doc.name,
+            doc.category,
+            doc.price,
+            doc.url_image,
+            doc.quantite,
+            doc.description,
+            doc.qeerebyasali,
+            doc.isPromo,
+            doc._rev
+          );
+        });
+      } else {
+        return [];
+      }
+    }),
+    catchError(error => {
+      console.error('Erreur lors de la recherche de produits:', error);
+      return of([]);
+    })
+  );
+}
 }

@@ -6,6 +6,7 @@
 <body>
     <header>
         <div></div>
+       
     </header>
     <div class="body-container">
         <div class="left-side">
@@ -60,12 +61,34 @@
               </div>
         </div>
         <div class="right-side">
-            <div>
+          <div  *ngIf="products">
+            <div class="proo">
+              <!-- Bouton de recherche -->
+              
+              <button type="button" class="btn btn-outline-dark" (click)="toggleSearch()">🔍</button>
+              <!-- Dropdown de recherche -->
+              <div *ngIf="showSearch">
+                
+                <input style="border-radius: 5%;" [(ngModel)]="searchKeyword" placeholder="Rechercher des produits" />
+                <button  class="btn btn-outline-secondary" (click)="searchProducts()">rechercher</button>
+              </div>
+            </div>
+            @if (products.length > 0) {
+            <div >
+              
+            </div>}
+            @if (products.length === 0) {
+            <div >
+              Aucun produit trouvé.
+            </div>
+          }
+            <div> 
                 @for (p of products; track $index) {
                   <app-productdetails [p]="p" (buyEvent)="buying(p)" (addToCartEvent)="addToCart($event)" (deleteEvent)="deleteProduct(p)" (editEvent)="loadProductForEdit(p)"></app-productdetails>
                 }
               </div>
-        </div>
+              
+        </div></div>
     </div>
     <footer>
        <div></div>

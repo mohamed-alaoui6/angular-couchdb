@@ -13,6 +13,9 @@ import { ProductService } from '../service/product.service';
   styleUrls: ['./productdetails.component.css']
 })
 export class ProductdetailsComponent {
+searchProducts() {
+throw new Error('Method not implemented.');
+}
 
   @Output() addToCartEvent: EventEmitter<product> = new EventEmitter<product>();
   @Input() p!: product;
@@ -21,6 +24,7 @@ export class ProductdetailsComponent {
   @Output() editEvent = new EventEmitter<product>();
   
   showDetails: boolean = false;
+
 
   constructor(public authss: AuhthenticationService,private productService: ProductService) {}
 
