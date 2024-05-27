@@ -7,14 +7,14 @@
           <img [src]="getImageURL(p)" style="width: 5cm; height: 5cm;" />
         </div>
         <div class="product-details">
-          <div class="product-name">{{ p.name }}</div>
-          <div class="product-price">Prix: {{ p.price }}</div>
-          <div class="quantity text-danger custom-product-quantity"><b>Quantité disponible: {{ p.quantite }}</b></div>
-          <div class="promo-status" [ngClass]="{ 'promo': p.isPromo }">
-            {{ p.isPromo ? 'En Promo' : '' }}
+          <div style="font-weight: bold;" class="product-name">{{ p.name }}</div>
+          <div class="product-price" style="font-weight: bold;">Prix: {{ p.price }}</div>
+          <div class="" style="color: rgb(0, 92, 92);"><b>Quantité disponible: {{ p.quantite }}</b></div>
+          <div class="" [ngClass]="{ 'promo': p.isPromo }" style="font-weight: bold;color: rgb(255, 217, 0);">
+            {{ p.isPromo ? 'En Promo🔥' : '' }}
           </div>
           <details class="accordion">
-            <summary>Détails du produit</summary>
+            <summary style="font-weight: bold;">Détails du produit</summary>
             <div class="accordion-body">
               <p>{{ p.description }}</p>
             </div>
@@ -23,10 +23,10 @@
         
         <div class="alerts">
           @if (p.qeerebyasali && p.quantite != 0){
-            <div id="alert" style="color: rgb(251, 6, 6);" i18n>QUANTITE INSSUFISANTE⁉️</div>
+            <div id="alert" style="color: rgb(255, 238, 0);font-weight: bold;" i18n>QUANTITE INSSUFISANTE⁉️</div>
           }
           @if (p.quantite == 0){
-            <label style="color: rgb(179, 0, 0);" i18n>PRODUCT EXPIRED🚨</label>
+            <label style="color: rgb(255, 0, 0);font-weight: bold;" i18n>PRODUCT EXPIRED🚨</label>
           }
         </div>
         <div class="btn">
