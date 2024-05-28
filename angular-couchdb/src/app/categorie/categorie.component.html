@@ -9,6 +9,11 @@
     </header>
     <div class="body-container">
         <div class="left-side">
+          @if (auths.hasrole('USER')) {
+                
+            <img  style="position: fixed;width: 20%; height: 100%;margin-left: 5px;margin-bottom: 15px; " src="\assets\images\imm.jpg" alt="">
+            
+          }
             <div class="text-center mt-5">
                 @if (auths.hasrole('ADMIN')) {
                 <div style="background-color: rgb(0, 0, 0); color: #ffffff;" class="btn btn-custom">
