@@ -8,13 +8,13 @@
         </div>
         <div class="product-details">
           <div style="font-weight: bold;" class="product-name">{{ p.name }}</div>
-          <div class="product-price" style="font-weight: bold;">Prix: {{ p.price }}</div>
-          <div class="" style="color: rgb(0, 92, 92);"><b>Quantité disponible: {{ p.quantite }}</b></div>
+          <div class="product-price" style="font-weight: bold;" i18n>Price: {{ p.price }}</div>
+          <div class="" style="color: rgb(0, 92, 92);"><b i18n>Quantity available {{ p.quantite }}</b></div>
           <div class="" [ngClass]="{ 'promo': p.isPromo }" style="font-weight: bold;color: rgb(255, 217, 0);">
             {{ p.isPromo ? 'En Promo🔥' : '' }}
           </div>
           <details class="accordion">
-            <summary style="font-weight: bold;">Détails du produit</summary>
+            <summary style="font-weight: bold;" i18n>Product details</summary>
             <div class="accordion-body">
               <p>{{ p.description }}</p>
             </div>
@@ -34,8 +34,8 @@
             <button class="btn btn-light" [disabled]="p.quantite === 0" (click)="addToCart(p); buying()">🛒 buy<i class="bi bi-cart"></i></button>
           }
           @if (authss.hasrole('ADMIN')){
-            <button type="button" class="btn btn-outline-warning edit-btn" (click)="editProduct()">Edit</button>
-            <button type="button" class="btn btn-outline-danger delete-btn" (click)="deleteProduct(p)">Delete</button>
+            <button type="button" class="btn btn-outline-warning edit-btn" (click)="editProduct()" i18n>Edit</button>
+            <button type="button" class="btn btn-outline-danger delete-btn" (click)="deleteProduct(p)" i18n>Delete</button>
             <button type="button" class="btn btn-outline-primary" (click)="togglePromo(p)">
               {{ p.isPromo ? 'Désactiver Promo' : 'Activer Promo' }}
             </button>

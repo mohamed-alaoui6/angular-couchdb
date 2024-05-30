@@ -19,39 +19,39 @@
                 <div style="background-color: rgb(0, 0, 0); color: #ffffff;" class="btn btn-custom">
                   
                   
-                    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">Ajouter un produit</h1>
+                    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;" i18n>Add product</h1>
                     <form class="form-container" (ngSubmit)="addProduct()">
                       <div class="form-group">
-                        <label for="name">Nom du produit :</label>
+                        <label for="name" i18n>Product name</label>
                         <input type="text" id="name" [(ngModel)]="newProduct.name" name="name" class="form-control" required>
                       </div>
                     
                       <div class="form-group">
-                        <label for="category">category</label>
+                        <label for="category" i18n>category</label>
                         <input type="text" id="category" [(ngModel)]="newProduct.category" name="category" class="form-control" required>
                       </div>
             
                       <div class="form-group">
-                        <label for="price">Prix :</label>
+                        <label for="price" i18n>Price</label>
                         <input type="number" id="price" [(ngModel)]="newProduct.price" name="price" class="form-control" required>
                       </div>
                     
                       <div class="form-group">
-                        <label for="url_image">URL de l'image :</label>
+                        <label for="url_image" i18n>image url</label>
                         <input type="url" id="url_image" [(ngModel)]="newProduct.url_image" name="url_image" class="form-control" required>
                       </div>
                     
                       <div class="form-group">
-                        <label for="quantity">Quantité :</label>
+                        <label for="quantity" i18n>Quantity</label>
                         <input type="number" id="quantity" [(ngModel)]="newProduct.quantite" name="quantity" class="form-control" required>
                       </div>
                     
                       <div class="form-group">
-                        <label for="description">Description :</label>
+                        <label for="description" i18n>Description :</label>
                         <textarea id="description" [(ngModel)]="newProduct.description" name="description" class="form-control"></textarea>
                       </div>
                     
-                      <button type="submit" class="btn btn-outline-dark">add</button>
+                      <button type="submit" class="btn btn-outline-dark">ADD</button>
                     </form>
                     
                   
@@ -67,12 +67,12 @@
                   <div class="product-details">
                     <div class="product-name" style="font-weight: bold;">{{ product.name }}</div>
                     <div class="product-price">Prix: {{ product.price }}</div>
-                    <div class="" style="color: rgb(0, 92, 92);"><b>Quantité disponible: {{ product.quantite}}</b></div>
+                    <div class="" style="color: rgb(0, 92, 92);"><b i18n>Quantity available {{ product.quantite}}</b></div>
                     <div class="" [ngClass]="{ 'promo': product.isPromo }" style="font-weight: bold;color: rgb(255, 217, 0);">
                       {{ product.isPromo ? 'En Promo🔥' : '' }}
                     </div>
                     <details class="accordion">
-                      <summary style="font-weight: bold;">Détails du produit</summary>
+                      <summary style="font-weight: bold;" i18n>Product details</summary>
                       <div class="accordion-body">
                         <p>{{ product.description }}</p>
                       </div>

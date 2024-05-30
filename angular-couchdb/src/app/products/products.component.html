@@ -24,36 +24,36 @@
                     <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;" i18n>{{ editMode ? 'MODIFIER PRODUIT' : 'AJOUTER PRODUIT' }}</h1>
                     <form class="form-container" (ngSubmit)="addProduct()">
                       <div class="form-group">
-                        <label for="name">Nom du produit :</label>
+                        <label for="name" i18n>Product name</label>
                         <input type="text" id="name" [(ngModel)]="newProduct.name" name="name" class="form-control" required>
                       </div>
                     
                       <div class="form-group">
-                        <label for="category">Catégorie :</label>
+                        <label for="category" i18n>Category </label>
                         <input type="text" id="category" [(ngModel)]="newProduct.category" name="category" class="form-control" required>
                       </div>
           
                       <div class="form-group">
-                        <label for="price">Prix :</label>
+                        <label for="price" i18n>Price</label>
                         <input type="number" id="price" [(ngModel)]="newProduct.price" name="price" class="form-control" required>
                       </div>
                     
                       <div class="form-group">
-                        <label for="url_image">URL de l'image :</label>
+                        <label for="url_image" i18n>Image URL </label>
                         <input type="url" id="url_image" [(ngModel)]="newProduct.url_image" name="url_image" class="form-control" required>
                       </div>
                     
                       <div class="form-group">
-                        <label for="quantity">Quantité :</label>
+                        <label for="quantity" i18n>Quantity</label>
                         <input type="number" id="quantity" [(ngModel)]="newProduct.quantite" name="quantity" class="form-control" required>
                       </div>
                     
                       <div class="form-group">
-                        <label for="description">Description :</label>
+                        <label for="description" i18n>Description </label>
                         <textarea id="description" [(ngModel)]="newProduct.description" name="description" class="form-control"></textarea>
                       </div>
                     
-                      <button type="submit" class="btn btn-outline-dark">{{ editMode ? 'Modifier' : 'Ajouter' }}</button>
+                      <button type="submit" class="btn btn-outline-dark" i18n>{{ editMode ? 'Modify' : 'ADD' }}</button>
                     </form>
                     
                   
@@ -70,7 +70,7 @@
               <div *ngIf="showSearch">
                 
                 <input style="border-radius: 5%;" [(ngModel)]="searchKeyword" placeholder="Rechercher des produits" />
-                <button  class="btn btn-outline-secondary" (click)="searchProducts()">rechercher</button>
+                <button  class="btn btn-outline-secondary" (click)="searchProducts()" i18n>search</button>
               </div>
             </div>
             @if (products.length > 0) {
@@ -78,8 +78,8 @@
               
             </div>}
             @if (products.length === 0) {
-            <div >
-              Aucun produit trouvé.
+            <div i18n >
+              NO product found
             </div>
           }
             <div> 
